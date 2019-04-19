@@ -2,7 +2,7 @@ sed是一种"流编辑器"，
 处理问题时，把当前处理的行存储在临时缓冲区中，称为 "模式空间(pattern space)"，
 接着使用
 
-
+sed -i '/.*deploy.*/d' ${WORKSPACE}/settings.gradle  //删除
 
  
 sed -i 's/address="abc"/address="def"/g' test.xml	//替换
