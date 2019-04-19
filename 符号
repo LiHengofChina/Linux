@@ -10,3 +10,4 @@
    查询/etc/rsyslog.conf文件，但是不包含空行和注释行
 
 
+cat /etc/ssh/sshd_config | grep -v '^#' | grep -v '^$'
