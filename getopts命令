@@ -1,0 +1,44 @@
+getopts
+getopts是linux系统中的一个内置变量，
+一般用在循环中
+
+
+每当执行循环是，getopts都会检查下一个命令选项，
+如果这些选项出现在option中，
+则表示是合法选项，并将这些合法选项保存在VARIABLE这个变量中。
+否则不是合法选项。
+
+
+getopts还包含两个内置变量，及OPTARG和OPTIND
+OPTARG就是将选项后面的参数（或者描述信息DESCPRITION）保存在这个变量当中。
+OPTIND：这个表示命令行的下一个选项或参数的索引（文件名不算选项或参数）
+
+
+
+//===========================格式
+语法格式：getopts [option[:]] [DESCPRITION] VARIABLE
+option 	    表示为某个脚本可以使用的选项
+: 			表示这个选项后面可以接参数
+DESCPRITION 一段描述信息DESCPRITION
+VARIABLE 	表示将某个选项保存在变量VARIABLE中
+
+//===========================示例
+while getopts "c:k:h" options;
+do
+    case $options in
+        c)
+            CONTENT="${OPTARG}"
+            ;;
+        k)
+            KEY="${OPTARG}"
+            ;;
+        h)
+            ShowHelp
+            exit 0
+            ;;
+        *)
+            ShowHelp
+            exit 1
+            ;;
+    esac
+done
