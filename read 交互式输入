@@ -1,0 +1,13 @@
+
+#!/bin/bash
+
+local content=$1
+local type=$2
+
+
+if read -sp "please enter your name:" name
+then
+  echo "hello $name ,welcome to my script"
+else
+  echo "sorry ,tow slow!"
+fi
