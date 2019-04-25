@@ -29,7 +29,7 @@ else
 fi	
 	
 //========================== 一行版本 
-grep "address=" server.xml ; if [ $? -ne 0 ] ; then  sed -i 's/protocol="com.liheng.www.haha.Http11Protocol"/protocol="com.huawei.wcc.secas.Http11Protocol" address="172.100.33.107"/g' server.xml; fi ;
+grep "address=" server.xml ; if [ $? -ne 0 ] ; then  sed -i 's/protocol="com.liheng.www.haha.Http11Protocol"/protocol="com.liheng.ddd.wwww.Http11Protocol" address="172.100.33.107"/g' server.xml; fi ;
 
 
 
