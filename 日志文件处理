@@ -1,0 +1,6 @@
+当日志文件大于100行时，删了前100行
+
+total=`cat ${logFile} | wc -l`
+if [ ${total} -gt 100 ] ; then
+    sed -i '1,100d' ${logFile} >/dev/null 2>&1
+fi
