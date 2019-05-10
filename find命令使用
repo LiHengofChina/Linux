@@ -1,0 +1,8 @@
+列出某个目录下所有文件
+   find /opt/abc -type f 
+定位到具体某个文件
+   find /opt/abc -type f |  grep "LIHENG_[\w\s.-]*.tar.gz" -i -P`
+   
+   
+   
+   
