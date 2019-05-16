@@ -1,0 +1,5 @@
+#!/bin/bash
+
+declare -i number=$RANDOM*30000/32767+3000
+
+echo "${number}"
