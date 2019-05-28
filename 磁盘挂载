@@ -1,20 +1,3 @@
-		df -h 查看分区
-    
-    fdisk -l 查看磁盘
-    
-    
-    	/** 
-		挂载
-		mkfs.ext4 /dev/xvde
-		
-		mount  /dev/xvde1 /opt/liheng
-		mount  /dev/xvde2 /opt/liheng/logs
- 
-		卸载流程
-		0). umount -l /dev/xvde2
-			umount -l /dev/xvde1
- 	
-		1). vim /etc/fstab
-			/dev/xvde2 /opt/liheng ext4 defaults 1 1
-		2). 删除对应 的文件夹
-	 */
+
+
+
