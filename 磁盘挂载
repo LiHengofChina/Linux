@@ -1,21 +1,20 @@
-
 1). 查看当前硬盘情况
 	[root@I-liheng /]# lsblk
 	NAME                 MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
-	vda                  252:0    0   40G  0 disk			//disk表示硬盘
-	├─vda1               252:1    0  512M  0 part /boot		//part 物理分区，不能扩展
-	└─vda2               252:2    0 39.5G  0 part
+	abc                  252:0    0   40G  0 disk			//disk表示硬盘
+	├─abc1               252:1    0  512M  0 part /boot		//part 物理分区，不能扩展
+	└─abc2               252:2    0 39.5G  0 part
 	  └─VolGroup-lv_root 253:0    0 39.5G  0 lvm  /			//lvm 逻辑分区，可以扩展，逻辑分区表示可分区
-	vdb                  252:16   0   50G  0 disk			 
+	def                  252:16   0   50G  0 disk			 
 	MOUNTPOINT  磁盘名、逻辑盘名、分区名
 	MOUNTPOINT  目录名、挂载点
-			//  vdb 盘的MOUNTPOINT列为空，挂载点 表示这个 vdb  还未被使用
+			//  def 盘的MOUNTPOINT列为空，挂载点 表示这个 def  还未被使用
 			//  或者  大小总大小不一样，也说明他未使用完。
 2). 查看"目录挂载"情况//注意：是挂载，不是分区
 	[root@I-liheng /]# df -h					//当前挂载情况
 	Filesystem                    Size  Used Avail Use% Mounted on
 	/dev/mapper/VolGroup-lv_root   39G  1.4G   36G   4% /			
-	/dev/vda1                     488M   58M  395M  13% /boot
+	/dev/abc1                     488M   58M  395M  13% /boot
 	tmpfs                         3.9G  6.6M  3.9G   1% /run
 	......
 	// Filesystem 块设备名  lvname名字 ，并不是目录，
@@ -25,7 +24,7 @@
 	// Mounted on 目录名，挂载点
 3). 
 	1).创建物理分区分割磁盘
-		fdisk /dev/vdb	// /dev/vdb  表示  dev下就的vdb盘，就不会找到其它硬盘了。
+		fdisk /dev/def	// /dev/def  表示  dev下就的def盘，就不会找到其它硬盘了。
 		n 
 		p	//p表示主分 e表示扩展分区
 		1	//这块硬盘的分盘命名
@@ -35,20 +34,20 @@
 			//此时使用 //分区了不一定挂载
 			//lsblk   和 fdisk -l 查看信息
 
-	2). 初始化、格式化分区	//"vdb1"是分区名
-		mkfs -t ext4 /dev/vdb1
+	2). 初始化、格式化分区	//"def1"是分区名
+		mkfs -t ext4 /dev/def1
 	        注意：这一步会删除目录下的所有内容
 	3). 挂载"目录"
 		mkdir -p /var/liheng	//先创建目录
-		mount /dev/vdb1 /var/liheng
+		mount /dev/def1 /var/liheng
 			  //分区名  +   挂载点
 			  //此时使用df -h 便可以查看挂载情况
 			  //*******************到这里就可以在这个目录安装程序了
 	4).	卸载"目录"
-		umount -l /dev/vdb1 或 umount -l /var/liheng
+		umount -l /dev/def1 或 umount -l /var/liheng
 		rm -fr  /var/liheng	//卸载之前无法删除目录的
 	5). 删除物理分区
-		fdisk /dev/vdb
+		fdisk /dev/def
 		d
 		1
 		w
