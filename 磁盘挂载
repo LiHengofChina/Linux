@@ -37,6 +37,7 @@
 
 	2). 初始化、格式化分区	//"vdb1"是分区名
 		mkfs -t ext4 /dev/vdb1
+	        注意：这一步会删除目录下的所有内容
 	3). 挂载"目录"
 		mkdir -p /var/liheng	//先创建目录
 		mount /dev/vdb1 /var/liheng
