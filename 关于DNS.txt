@@ -18,5 +18,64 @@ dig @192.3.25.135 vvv.beijing-li.de +short
 	nameserver 192.3.25.135
 	
 	本机与dns服务器ip的网络也必须打通
+//================================
+//================================
+1). DNS 配置文件位置
+	//每个域名会有一个配置文件
+	/var/lib/named/liheng.com
+	
+
+2). 服务器重启命令
+
+	//重启命令
+	service named restart 
+	//named是DNS的进程名
+
+	 
+3). 配置文件详解
+
+	1).配置文件中“ ; ”分号表示注释
+		//===================第一部分
+		$TTL 60 ; 1 minutes //对域名的缓存时间
+
+		@ IN SOA ns.liheng.com. admin.liheng.com. (
+		1505291735 ; serial
+		3H ; refresh (3 hours)
+		15M ; retry (15 minutes)
+		1W ; expire (1 week)
+		1D ) ; minimum (1 day)
 
 
+		// DNS集群配置
+		@ IN NS ns1
+		@ IN NS ns2
+		@ IN NS ns3
+
+		 
+		ns1 IN A 101.163.109.124
+		ns2 IN A 101.163.109.125
+		ns3 IN A 101.163.109.126
+		//===================第二部分：业务配置
+		;============第二种：NS记录
+		//一组
+		abc IN NS nsabc-wl1
+		nsabc-wl1 IN A 10.63.60.61
+						//  1).用法一：配置另一个DNS服务器的IP
+						// 	   把解析任务交给另一个DNS
+						//  2).LVS 的虚IP VIP
+						//     LVS后面找到真实业务处理IP，负载均衡
+		//二组
+		abc.cn-north-7 IN NS nsabc-wl2
+		nsabc-wl2 IN A 10.63.60.61
+		 
+		;============第二种：A记录
+					//配置A记录的话，
+					//就要把泛域名和用到的域名都配置上去
+		//一组
+		abc					300 	IN 		A 		17.20.10.10
+		*.abc				300 	IN 		A 		17.20.10.10
+		//二组
+		abc.cn-liheng-1 	300 	IN 		A 		19.20.10.10
+		*.abc.cn-liheng-1 	300 	IN 		A 		19.20.11.10
+ 
+	
