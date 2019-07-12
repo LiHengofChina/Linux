@@ -1,0 +1,97 @@
+//================================================
+	1). 下载镜像 CentOS-7-x86_64-Minimal-1810.iso
+		
+		http://mirrors.huaweicloud.com/centos/7.6.1810/isos/x86_64/
+
+	
+	
+	
+	2). //windows
+			使用 UltraISO 将IOS 写入U盘，
+			UNetbootin
+			ISOtoUSB
+		//linux
+			dd if=centos7.iso of=/dev/sdc
+		 
+
+	3). 磁盘的分割
+		//	X Window System 是图形化的linux 界面系统
+
+		所需目錄/裝置	磁碟容量	檔案系統	分割格式
+		BIOS boot		2MB			系統自訂	主分割
+		/boot			1GB			xfs			主分割
+		/				10GB		xfs			LVM 方式
+		/home			5GB			xfs			LVM 方式
+		swap			1GB			swap		LVM 方式	
+	
+//================================================开始安装
+	1). 使用烧制的 U盘启动电脑
+	2). 选择 "Install CentOS 7"
+		/**
+		默认使用MBR分割硬盘，
+		强制使用GPT分割
+			选择 "Install CentOS 7" ===> 按下"Tab"键，
+			===> 输入额外核心参数：inst.gpt
+		*/
+	3). 选择语言
+		"中文 Chinese " ==> "简体中文(中国)"
+		==> 时间设置 ==>  键盘设置"Ctrl + Shift 用来切换布局"
+	4). "软件设置" 
+				安装源
+				最小安装
+	5). "系统"
+		//=====
+		"安装目标位置"==> 298G硬盘
+		 "我要配置分区"
+		//=====================**************重点
+		1). 点击 "-" 删除旧的有分区
+		2). 新建立分区
+				"标准分区"  	biosboot  2M		BIOS Boot	//GPT才会有//grub使用，所以它不会显示出挂载点 //同时它的文档类型也是 BIOS Boot
+				"标准分区"  	/boot	  1G     	xfs
+				
+				"LVM"  			/     	  10G       xfs
+				"LVM"  			/home     5G   		xfs
+				"LVM"  			swap	  1G		swap		//也没有挂载点//把硬盘模拟成内存
+				
+		/**
+			GPT 本身不需要考虑  主/延伸/逻辑 分割差异
+				//没有差异是指，GPT突破了MBR4笔主分割的限制
+			
+			LVM 是一种可以弹性增加/削减档案系统容量的设备类型
+			换句话说：可以动态改变C盘和D盘的大小。
+			
+			LVM 有分组，有组名，
+				同一个分组的 LVM 总大小可以固定，
+					LVM下的各个组共享总组大小。
+
+		*/
+		
+		/**
+			ext2/ext3/ext4	早期Linux
+			xfs				CentOS预设
+			vfat			同时被Linux与Windows所支援
+		*/
+	6). "KDUMP" 核心当机时，内存转存的系统
+			//核心开发者使用多
+	
+	7). 网路&主机名称
+			//连接网线后打开
+			/**网卡 
+				echo0  虚拟机
+				enp4s0 //我的HP机器//可修改
+				p1p1
+				em1
+			*/
+		当可用时，自动连接
+		主机名：study.centos.liheng
+		
+	8). 设置root密码
+			root/I&my_car
+			liheng/liheng520	//此账号作为管理员，它可以切换成root
+				
+
+
+ 
+
+		
+

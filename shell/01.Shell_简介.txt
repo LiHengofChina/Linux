@@ -1,27 +1,19 @@
-原文地址：
-http://www.runoob.com/linux/linux-shell.html
-在线工具：
-
-http://www.runoob.com/try/runcode.php?filename=helloworld&type=bash
+原文地址：http://www.runoob.com/linux/linux-shell.html
+在线工具：http://www.runoob.com/try/runcode.php?filename=helloworld&type=bash
 //============================================Shell
 //============================================Shell
 		Shell 是一个用 C 语言编写的程序，
 		它是用户使用 Linux 的桥梁。
-		Shell 既是一种命令语言，
-		又是一种程序设计语言
+		Shell 既是一种命令语言， 又是一种程序设计语言
 		//=======================
 		Ken Thompson 的 sh 是第一种 Unix Shell，
 		Windows Explorer 是一个典型的图形界面 Shell。		
 //============================================Shell脚本
 //============================================Shell脚本
-
-		Shell 脚本（shell script），
-		是一种为 shell 编写的脚本程序。
-
+		Shell 脚本（shell script），是一种为 shell 编写的脚本程序。
 		业界所说的 shell 通常都是指 shell 脚本，
 			/**
 				shell 和 shell script 是两个不同的概念。
-
 				由于习惯的原因，简洁起见，
 				本文出现的 "shell编程" 都是指 shell 脚本编程，
 				不是指开发 shell 自身。

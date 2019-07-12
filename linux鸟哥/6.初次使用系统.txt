@@ -1,0 +1,22 @@
+ //========================
+ 
+ 1). 登出并不是关机，只是账号离开系统
+ 
+ 2). 默认会提供6个文件模式(终端机)( terminal或console)
+ 
+	 通过  [Ctrl] + [Alt] + [F1]~[F6] 切换
+	 [F1] ~ [F6]命名为tty1 ~ tty6
+ 
+ 3). X window 系统：图形化界面
+	 安装X Window system，并且X server是能够顺利启动的；
+	 命令：startx
+	 
+	 
+ 
+http://linux.vbird.org/linux_basic/0160startlinux.php 
+
+//从这里开始 2019年7月12日13:13:54
+4.1.4 在终端介面登入linux
+
+
+ 

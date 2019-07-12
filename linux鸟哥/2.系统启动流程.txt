@@ -47,8 +47,14 @@ UEFI：( UEFI BIOS ) // 为了解决传统BIOS人不足，出现了UEFI
 
 
 		/**
-		grub 是一个开机管理程序,
-		它需要一个额外的 BIOS boot 分割槽。
+		如果是GPT分割表：
+		
+		开机管理程序安装在LBA0 446 bytes 的空间中
+			如果是类似grub这样的启动管理程序，需要一个额外的 BIOS boot 分割槽，
+			换句话说，只有GPT需要这个分割槽
+		
+			CentOS 7.x 默认的就是grub2
+		
 		*/
 
 
