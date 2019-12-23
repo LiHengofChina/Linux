@@ -1,0 +1,26 @@
+示例：
+ps -A -o stat,pid,ppid,cmd
+
+-A  显示所有进程。
+-o 输出指定的字段
+
+stat,pid,ppid,cmd,comm
+
+
+PID  就是这个程序的 ID 
+PPID 则是其上级父程序的ID
+CMD(command) 所下达的指令及参数
+comm 只显示命令
+
+ 
+ 
+ps -A -o stat,pid,ppid,comm,user 
+| grep liheng 
+| grep java 
+| grep -e '^[Zz]' 
+| awk '{print $3}'  
+| grep -v '1'
+
+
+ 
+ 
