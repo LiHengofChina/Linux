@@ -1,0 +1,35 @@
+#! /bin/bash
+PROG_NAME=$0
+ACTION=$1
+CUR_DIR_=$2
+
+
+usage() {
+    echo "Usage: $PROG_NAME {connect|disconnect}"
+        exit 2 # bad usage
+}
+
+
+connect()
+{
+    echo "____________"
+}
+
+disconnect()
+{
+    echo "____________"
+}
+
+
+case "$ACTION" in
+	connect)
+		connect
+		;;
+	disconnect)
+		disconnect
+		;;
+	*)
+		usage
+		;;
+esac
+
