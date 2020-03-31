@@ -1,0 +1,66 @@
+//========= 理清楚这几个文件的关系
+0). CA与证书链
+	CA 为证书发机构，
+	一级一级的机构相关联形成了证书链
+
+1). all_attachments.zip 为原文件
+ 
+2). 把 all_attachments.zip 解压出来 
+	 解压后包涵：4个pem，两个说明图片
+		chain2.pem  	  //根证书和 中级证书在其中
+		cert2.pem    	  //服务证书在这里
+		//image001.jpg
+		//image002.jpg
+		//fullchain2.pem  //私钥转换才会使用到的
+		privkey2.pem      //私钥
+		
+3). 把 pem 后缀全部改成 crt后缀
+	cert2.pem   	======>cert2.crt
+	chain2.pem		======>chain2.crt
+	fullchain2.pem  ======>fullchain2.crt
+	privkey2.pem //私钥不用改
+ 
+4).	//=======================这三个crt是一个证书链
+	chain2.crt ==> cert2.crt
+	
+	PS:chain2.crt 里面有两个，其中一个是根证书
+	
+		//也可以中更多个
+	/** 
+		怎么辨别他们是根证书，业务证书呢？
+	
+		当后缀为 crt 的时候，就可以在windows中点击了。
+		
+		1). 颁发给 与 颁发者 是同一个名字就表示为根证书，也叫自签名证书。
+		2). 根证书的颁发机构发给另一个机构，
+			那另一个机构的证书就是中级证书//"中间"的意思
+		3). 中级的证书发给下面我们使用的，就是服务证书	
+		
+		可以通过"颁发者与颁发给"来区分，但主要还是内容不同。
+
+	*/
+
+ 
+5). 发现根证书
+		1). 打开其中的三个crt发现其中有 "颁发者"名字带Root的，
+		  就是： chain2.crt  它里面有两个证书
+		  
+		DTS Root CA X3     //根证书
+			|------ Let,s Encrypt Authority X3  //根证书颁发的证书
+		
+6). 抽取根证书，将根证书从 chain2.crt 中抽取出来
+		"双击打开 chain2.crt "	===>
+		"证书路径"				===> 
+		"双击 DTS Root CA X3"   ===> 
+		详细信息，复制到文件	===>
+		下一步					===>
+		Base64编码				===>
+		root.cer				===>//后缀任意取
+		
+7). 完整链条如下
+	root.cer    文件 ===>   DTS Root CA X3					      //"颁发者与颁发给" 都是 DTS Root CA X3
+								 |
+	chain2.crt  文件 ===>      Let,s Encrypt Authority X3         // ROOT  颁发  X3 的
+		                            |
+	cert2.crt   文件 ===>        *.poc.hybrid.otc-service.com     // x3 颁发给 otc 的
+						   
