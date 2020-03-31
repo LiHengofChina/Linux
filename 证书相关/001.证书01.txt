@@ -62,5 +62,5 @@
 								 |
 	chain2.crt  文件 ===>      Let,s Encrypt Authority X3         // ROOT  颁发  X3 的
 		                            |
-	cert2.crt   文件 ===>        *.poc.hybrid.otc-service.com     // x3 颁发给 otc 的
+	cert2.crt   文件 ===>        *.poc.hyyyy.occ-service.com     // x3 颁发给 occ 的
 						   
