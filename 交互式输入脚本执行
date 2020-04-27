@@ -1,0 +1,4 @@
+
+(echo "haha";echo "haha" ) | test 
+
+history  >> /tmp/lihent.txt
