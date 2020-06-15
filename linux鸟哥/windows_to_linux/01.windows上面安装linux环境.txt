@@ -1,0 +1,45 @@
+
+原地址：https://blog.csdn.net/hao5119266/article/details/89198275
+
+
+
+//===================================== 下载
+
+1). //==========下载CentOS镜像
+	http://mirrors.163.com/centos/8.1.1911/isos/x86_64/CentOS-8.1.1911-x86_64-dvd1.iso
+
+2). 下载: vm ware
+	https://www.vmware.com/cn.html
+	
+	需要注册
+		1900984045@139.com
+		liheng_\/’!LI123
+	
+
+	 
+	vm ware 15 激活码	//https://blog.csdn.net/qq_35995514/article/details/98473444
+		UG5J2-0ME12-M89WY-NPWXX-WQH88
+	
+3). 创建虚拟机：
+
+	CentOS8.1
+	
+	liheng
+	liheng520
+		
+	//======================问题 pane  is dead ？
+	移除：CD/DVD(IDE)autoinst.iso
+	
+	
+4).	创建3台虚拟机,
+		liheng-demo-01
+		liheng-demo-02
+		liheng-demo-03
+			liheng/liheng520
+	
+5). 创建过程中设置了root密码
+
+	root/lihengroot
+
+
+ 
