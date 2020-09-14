@@ -1,4 +1,8 @@
 
+
+//======================================= -s 安静模式，在输入字符时不再屏幕上显示，例如login时输入密码。
+//======================================= -s 安静模式，在输入字符时不再屏幕上显示，例如login时输入密码。
+
 #!/bin/bash
 
 local content=$1
@@ -13,7 +17,8 @@ else
 fi
 
 
-//=================DEMO02
+//======================================= DEMO02 -p 后面跟提示信息，即在输入前打印提示信息。
+//======================================= DEMO02 -p 后面跟提示信息，即在输入前打印提示信息。
 if read -p "Are you sure you want to execute this command, this command will replace the account password and restart the service process? [yes/no]: " name
 then
   if [ ${name} == "yes" ];then
@@ -23,3 +28,6 @@ then
     exit 0;
   fi
 fi
+
+
+

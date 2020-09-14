@@ -9,3 +9,16 @@
 	第三部分： <(echo ;echo 1;echo LihengPass123)
 			   第三部分分别用echo输出内容
 			   
+//=====================
+//=====================
+echo -n 表示不换行输出
+
+
+
+echo -e 表示输出转义字符
+
+echo -e "abc\tdef"  \t 制表符
+
+echo -e "abc\cdef"  \c 不换行
+echo -e "abc\ndef"  \n 换行
+
