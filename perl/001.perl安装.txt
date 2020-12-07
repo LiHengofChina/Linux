@@ -1,0 +1,53 @@
+//================================================================ 检测是否已安装perl
+//================================================================ 检测是否已安装perl
+
+在运行 Perl 程序前，我们需要先安装 Perl 的执行环境。
+
+很多系统平台上已经默认安装了 perl，
+
+perl -v
+
+
+//================================================================ linux/unix 安装
+//================================================================ linux/unix 安装
+Unix/Linux 系统上 Perl 安装步骤如下：
+通过浏览器打开 http://www.perl.org/get.html。
+下载适用于 Unix/Linux 的源码包。
+
+下载 perl-5.x.y.tar.gz 文件后执行以下操作。
+tar -xzf perl-5.x.y.tar.gz
+cd perl-5.x.y
+./Configure -de
+make
+make test
+make install
+
+//安装结果
+安装成功后，Perl 的安装路径为 /usr/local/bin ，
+库安装在 /usr/local/lib/perlXX, XX 为版本号
+
+
+//================================================================ windows安装
+//================================================================ windows安装
+
+Perl 在 Window 平台上有 ActiveStatePerl 和 Strawberry Perl 编译器。
+	
+	/**
+	"ActiveState Perl 和 Strawberry Perl" 最大的区别是 
+		Strawberry Perl 里面有多包含一些 CPAN 里的模块，  
+		所以Strawberry Perl 下载的安装文件有 80多M, 
+		而ActiveState Perl 只有20M 左右。
+	*/
+//======================== 安装步骤
+//======================== 安装步骤
+	Strawberry 安装包链接： http://strawberryperl.com。
+	下载对应你系统的版本： 32bit 或 64bit 。
+	下载后双击打开，按安装向导一步步安装即可。	
+	
+				
+			
+			
+			
+			
+
+

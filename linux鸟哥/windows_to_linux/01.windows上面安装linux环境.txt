@@ -28,7 +28,8 @@
 	liheng520
 		
 	//======================问题 pane  is dead ？
-	移除：CD/DVD(IDE)autoinst.iso
+	
+	在虚拟机设置中==>移除：CD/DVD(IDE)autoinst.iso
 	
 	
 4).	创建3台虚拟机,

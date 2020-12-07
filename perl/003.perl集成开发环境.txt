@@ -1,0 +1,16 @@
+集成开发环境
+1). Padre
+		//Padre 是一个为 Perl 语言开发者提供的集成开发环境，
+		//提供了语法高亮和代码重构功能。
+
+
+2).	EPIC
+	  
+		//EPIC 是 Perl Eclipse IDE 的插件，
+		//如果你熟悉 Eclipse，你可以使用它。
+		//安装步骤：	Help-->Eclipse Marketplace -->输入EPIC--> 
+		//选择安装并更新即可。
+		//EPIC 搜索出来，需要使用Eclipse的浏览器打开，才能看到。
+		
+	
+ 
