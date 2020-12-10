@@ -57,6 +57,18 @@ print("\n_________________________________switch 语句_________________________
 =cut
 
 =pod
+
+	switch(argument){
+	   case 1            { print "数字 1" }
+	   case "a"          { print "字符串 a" }
+	   case [1..10,42]   { print "数字在列表中" }
+	   case (\@array)    { print "数字在数组中" }
+	   case /\w+/        { print "正则匹配模式" }
+	   case qr/\w+/      { print "正则匹配模式" }
+	   case (\%hash)     { print "哈希" }
+	   case (\&sub)      { print "子进程" }
+	   else              { print "不匹配之前的条件" }
+	}
 	switch 语句的规则
  	1). switch 语句的括号中可以使用任意类型的标量参数 #注意是标量参数
 	2). case 语句后的标量会与 switch 语句的标量进行比较，判断是否相等。 #???只判断相等吗？
