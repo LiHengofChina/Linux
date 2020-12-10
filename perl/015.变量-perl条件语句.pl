@@ -51,10 +51,50 @@ print("\n_________________________________switch 语句_________________________
 
 	#安装方式二： 使用 apt-get 安装
 	sudo apt-get install libswitch-perl
+	
 
+ 
+=cut
+
+=pod
+	switch 语句的规则
+ 	1). switch 语句的括号中可以使用任意类型的标量参数 #注意是标量参数
+	2). case 语句后的标量会与 switch 语句的标量进行比较，判断是否相等。 #???只判断相等吗？
+	3). switch 语句可以有一个可选的 else ,该语句在最后面
+	4). 当匹配 case 后，会执行 case 语句块代码，执行后跳出 switch 语句。当匹配 case 后，如果我们需要继续执行接下来的 case 语句，则需要添加 next 语句。
 =cut
 
 #示例一：
+use Switch;
+ 
+$var = 10;
+@array = (10, 20, 30);
+%hash = ('key1' => 10, 'key2' => 20);
+ 
+switch($var){
+   case 10           { print "数字 10\n" }
+   case "a"          { print "字符串 a" }
+   case [1..10,42]   { print "数字在列表中" }
+   case (\@array)    { print "数字在数组中" }
+   case (\%hash)     { print "在哈希中" }
+   else              { print "没有匹配的条件" }
+}
+
+#示例二：
+use Switch;
+ 
+$var = 10;
+@array = (10, 20, 30);
+%hash = ('key1' => 10, 'key2' => 20);
+ 
+switch($var){
+   case 10           { print "数字 10\n"; next; }  # 匹配后继续执行
+   case "a"          { print "string a" }
+   case [1..10,42]   { print "数字在列表中" }
+   case (\@array)    { print "数字在数组中" }
+   case (\%hash)     { print "在哈希中" }
+   else              { print "没有匹配的条件" }
+}
 
 
 
