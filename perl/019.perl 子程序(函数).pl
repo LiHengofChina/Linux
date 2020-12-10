@@ -4,68 +4,233 @@
 
 =pod
 
-    Perl å­ç¨‹åºä¹Ÿå°±æ˜¯ç”¨æˆ·å®šä¹‰çš„å‡½æ•°ã€‚
-    Perl å­ç¨‹åºå³æ‰§è¡Œä¸€ä¸ªç‰¹æ®Šä»»åŠ¡çš„ä¸€æ®µåˆ†ç¦»çš„ä»£ç ï¼Œå®ƒå¯ä»¥ä½¿å‡å°‘é‡å¤ä»£ç ä¸”ä½¿ç¨‹åºæ˜“è¯»ã€‚
-    Perl å­ç¨‹åºå¯ä»¥å‡ºçŽ°åœ¨ç¨‹åºçš„ä»»ä½•åœ°æ–¹ï¼Œè¯­æ³•æ ¼å¼å¦‚ä¸‹ï¼š
+    Perl ×Ó³ÌÐòÒ²¾ÍÊÇÓÃ»§¶¨ÒåµÄº¯Êý¡£
+    Perl ×Ó³ÌÐò¼´Ö´ÐÐÒ»¸öÌØÊâÈÎÎñµÄÒ»¶Î·ÖÀëµÄ´úÂë£¬Ëü¿ÉÒÔÊ¹¼õÉÙÖØ¸´´úÂëÇÒÊ¹³ÌÐòÒ×¶Á¡£
+    Perl ×Ó³ÌÐò¿ÉÒÔ³öÏÖÔÚ³ÌÐòµÄÈÎºÎµØ·½£¬Óï·¨¸ñÊ½ÈçÏÂ£º
 
-#å®šä¹‰
+#¶¨Òå
           sub subroutine{
              statements;
           }
 
-#è°ƒç”¨
-         subroutine( å‚æ•°åˆ—è¡¨ );
-         &subroutine( å‚æ•°åˆ—è¡¨ ); #5.0 ä»¥ä¸‹ç‰ˆæœ¬è°ƒç”¨å­ç¨‹åºæ–¹æ³•ï¼Œåœ¨æ–°ç‰ˆæœ¬ä¸Šï¼Œè™½ç„¶ä¹Ÿæ”¯æŒè¯¥è°ƒç”¨æ–¹æ³•ï¼Œä½†ä¸æŽ¨èä½¿ç”¨ã€‚
+#µ÷ÓÃ
+         subroutine( ²ÎÊýÁÐ±í );
+         &subroutine( ²ÎÊýÁÐ±í ); #5.0 ÒÔÏÂ°æ±¾µ÷ÓÃ×Ó³ÌÐò·½·¨£¬ÔÚÐÂ°æ±¾ÉÏ£¬ËäÈ»Ò²Ö§³Ö¸Ãµ÷ÓÃ·½·¨£¬µ«²»ÍÆ¼öÊ¹ÓÃ¡£
 
 =cut
 
-print("\n_________________________________åˆ›å»ºä¸Žè°ƒç”¨__________________________________________________\n");
 
-# å‡½æ•°å®šä¹‰
+
+print("\n_________________________________´´½¨Óëµ÷ÓÃ__________________________________________________\n");
+
+# º¯Êý¶¨Òå
 sub Hello{
-   print "Hello, World!\n";
+	print "Hello, World!\n";
 }
- 
-# å‡½æ•°è°ƒç”¨
+# º¯Êýµ÷ÓÃ
 Hello();
 
-print("\n_________________________________å‘å­ç¨‹åºä¼ é€’å‚æ•°__________________________________________________\n");
-# @_ è¡¨ç¤ºå½¢å‚
 
 
-# å®šä¹‰æ±‚å¹³å‡å€¼å‡½æ•°
+
+print("\n_________________________________Ïò×Ó³ÌÐò´«µÝ²ÎÊý__________________________________________________\n");
+# @_ ±íÊ¾ÐÎ²Î
+# ¶¨ÒåÇóÆ½¾ùÖµº¯Êý
 sub Average{
-   # èŽ·å–æ‰€æœ‰ä¼ å…¥çš„å‚æ•°
-   $n = scalar(@_);   #  @ è¡¨ç¤ºå®ƒæ˜¯ä¸€ä¸ªæ•°ç»„ï¼Œ _æ˜¯æ•°ç»„åå­—ã€‚ç®€å•è¯´ï¼Œç®€å•è¯´å½¢å‚ç”¨ _  è¡¨ç¤ºã€‚
-   $sum = 0;
- 
-   foreach $item (@_){
-      $sum += $item;
-   }
-   $average = $sum / $n;
-   print 'ä¼ å…¥çš„å‚æ•°ä¸º : ',"@_\n";           # æ‰“å°æ•´ä¸ªæ•°ç»„
-   print "ç¬¬ä¸€ä¸ªå‚æ•°å€¼ä¸º : $_[0]\n";         # æ‰“å°ç¬¬ä¸€ä¸ªå‚æ•°
-   print "ä¼ å…¥å‚æ•°çš„å¹³å‡å€¼ä¸º : $average\n";  # æ‰“å°å¹³å‡å€¼
+	   # »ñÈ¡ËùÓÐ´«ÈëµÄ²ÎÊý
+	   $n = scalar(@_);
+	   $sum = 0;
+	   foreach $item (@_){
+		  $sum += $item;
+	   }
+	   $average = $sum / $n;
+
+	   print '´«ÈëµÄ²ÎÊýÎª : ',"@_\n";           # ´òÓ¡Õû¸öÊý×é
+	   print "µÚÒ»¸ö²ÎÊýÖµÎª : $_[0]\n";         # ´òÓ¡µÚÒ»¸ö²ÎÊý
+	   print "´«Èë²ÎÊýµÄÆ½¾ùÖµÎª : $average\n";  # ´òÓ¡Æ½¾ùÖµ
+	  
 }
- 
-# è°ƒç”¨å‡½æ•°
-Average(10, 20, 30);
+Average(10,20,30);
 
-print("\n_________________________________å‘å­ç¨‹åºä¼ é€’åˆ—è¡¨__________________________________________________\n");
-#ç”±äºŽ @_ å˜é‡æ˜¯ä¸€ä¸ªæ•°ç»„ï¼Œæ‰€ä»¥å®ƒå¯ä»¥å‘å­ç¨‹åºä¸­ä¼ é€’åˆ—è¡¨ã€‚
-#ä½†å¦‚æžœæˆ‘ä»¬éœ€è¦ä¼ å…¥æ ‡é‡å’Œæ•°ç»„å‚æ•°æ—¶ï¼Œéœ€è¦æŠŠåˆ—è¡¨æ”¾åœ¨æœ€åŽä¸€ä¸ªå‚æ•°ä¸Š
 
-# å®šä¹‰å‡½æ•°
+print("\n_________________________________Ïò×Ó³ÌÐò´«µÝÁÐ±í__________________________________________________\n");
+
+
+#¶¨Òåº¯Êý
 sub PrintList{
-   my @list = @_;
-   print "åˆ—è¡¨ä¸º : @list\n";
+	my @list = @_;
+	print "ÁÐ±íÎª£º@list \n";
+	
 }
 $a = 10;
-@b = (1, 2, 3, 4);
+@b = (1,2,3,4);
 
-# åˆ—è¡¨å‚æ•°
-PrintList($a, @b);
+#ÁÐ±í²ÎÊý
+PrintList($a,@b);#Ò»¸ö±êÁ¿£¬Ò»¸öÊý×é
 
+print("\n_________________________________Ïò×Ó³ÌÐò´«µÝ¹þÏ£__________________________________________________\n");
+
+
+
+sub PrintHash{
+	my (%hash) = @_;
+	foreach my $key ( keys %hash){
+		my $value = $hash{$key};
+		print "$key : $value \n";
+		
+	}
+}
+
+%hash = ( 'name' => 'runoob' , 'age' => 3 );
+PrintHash(%hash);
+
+
+print("\n_________________________________×Ó³ÌÐò·µ»ØÖµ__________________________________________________\n");
+
+# ×Ó³ÌÐò ¿ÉÒÔÊ¹ÓÃ return Óï¾ä À´·µ»Øº¯ÊýÖµ¡£
+# Èç¹ûÃ»ÓÐÊ¹ÓÃ return Óï¾ä£¬Ôò×Ó³ÌÐòµÄ×îºóÒ»ÐÐÓï¾ä½«×÷Îª·µ»ØÖµ¡£
+
+sub add_a_b{
+	# ²»Ê¹ÓÃreturn
+	# $_[0] + $_[1];
+	
+	# Ê¹ÓÃreturn
+	return $_[0] + $_[1];
+}
+
+print add_a_b(1,2);
+
+
+
+print("\n_________________________________×Ó³ÌÐòË½ÓÐ±äÁ¿__________________________________________________\n");
+=pod
+
+Ä¬ÈÏÇé¿öÏÂ£¬Perl ÖÐËùÓÐµÄ±äÁ¿¶¼ÊÇÈ«¾Ö±äÁ¿£¬ Õâ¾ÍÊÇËµ±äÁ¿ÔÚ³ÌÐòµÄÈÎºÎµØ·½¶¼¿ÉÒÔµ÷ÓÃ¡£
+Èç¹ûÎÒÃÇÐèÒªÉèÖÃË½ÓÐ±äÁ¿£¬¿ÉÒÔÊ¹ÓÃ my ²Ù×÷·ûÀ´ÉèÖÃ¡£
+
+my ²Ù×÷·ûÓÃÓÚ´´½¨´Ê·¨×÷ÓÃÓò±äÁ¿£¬Í¨¹ý my ´´½¨µÄ±äÁ¿£¬´æ»îÓÚÉùÃ÷¿ªÊ¼µÄµØ·½£¬Ö±µ½±ÕºÏ×÷ÓÃÓòµÄ½áÎ²¡£
+±ÕºÏ×÷ÓÃÓòÖ¸µÄ¿ÉÒÔÊÇÒ»¶Ô»¨À¨ºÅÖÐµÄÇøÓò£¬¿ÉÒÔÊÇÒ»¸öÎÄ¼þ£¬Ò²¿ÉÒÔÊÇÒ»¸ö if, while, for, foreach, eval×Ö·û´®¡£
+
+sub somefunc {
+   my $variable; # $variable ÔÚ·½·¨ somefunc() Íâ²»¿É¼û
+   my ($another, @an_array, %a_hash); #  Í¬Ê±ÉùÃ÷¶à¸ö±äÁ¿
+}
+
+
+=cut
+
+$string = "Hello ,World!";
+
+sub PrintHello{
+	my $string;
+	$string = "Hello, Liheng!";
+	print "$string \n";
+	
+}
+
+PrintHello();
+print "$string \n";
+
+
+print("\n_________________________________±äÁ¿µÄÁÙÊ±¸³Öµ__________________________________________________\n");
+
+=pod
+	ÎÒÃÇ¿ÉÒÔÊ¹ÓÃ local ÎªÈ«¾Ö±äÁ¿Ìá¹©ÁÙÊ±µÄÖµ£¬ÔÚÍË³ö×÷ÓÃÓòºó½«Ô­À´µÄÖµ»¹»ØÈ¥¡£
+	local ¶¨ÒåµÄ±äÁ¿²»´æÔÚÓÚÖ÷³ÌÐòÖÐ£¬µ«´æÔÚÓÚ¸Ã×Ó³ÌÐòºÍ¸Ã×Ó³ÌÐòµ÷ÓÃµÄ×Ó³ÌÐòÖÐ¡£
+	Ïàµ±ÓÚjavaÀïÃæµÄÏß³Ì±¾µØ±äÁ¿¡£
+=cut
+
+# È«¾Ö±äÁ¿
+$string = "Hello, World!";
+
+sub PrintMe{
+   print "PrintMe º¯ÊýÄÚ×Ö·û´®Öµ£º$string\n";#Hello, Liheng #Ïß³Ì±¾µØ
+}
+
+sub PrintRunoob{
+   # PrintHello º¯ÊýË½ÓÐ±äÁ¿
+   local $string;
+   $string = "Hello, Liheng!";
+   # ×Ó³ÌÐòµ÷ÓÃ×Ó³ÌÐò
+   PrintMe();
+   print "PrintRunoob º¯ÊýÄÚ×Ö·û´®Öµ£º$string\n"; #Hello, Liheng #Ïß³Ì±¾µØ
+}
+
+ 
+sub PrintHello{
+   print "PrintHello º¯ÊýÄÚ×Ö·û´®Öµ£º$string\n"; #Hello, World! #´òÓ¡È«¾ÖµÄ
+}
+ 
+# º¯Êýµ÷ÓÃ
+PrintRunoob();
+PrintHello();
+print "º¯ÊýÍâ²¿×Ö·û´®Öµ£º$string\n"; #Hello, World!  #´òÓ¡È«¾ÖµÄ
+
+
+print("\n_________________________________¾²Ì¬±äÁ¿__________________________________________________\n");
+
+# state¹Ø¼ü×Ö½«¾Ö²¿±äÁ¿±äµÃ³Ö¾Ã
+# stateÒ²ÊÇ´Ê·¨±äÁ¿£¬ËùÒÔÖ»ÔÚ¶¨Òå¸Ã±äÁ¿µÄ´Ê·¨×÷ÓÃÓòÖÐÓÐÐ§£¬¾Ù¸öÀý×Ó£º
+
+use feature 'state';
+
+sub PrintCount{
+	state $count = 0 ;# ³õÊ¼»¯±äÁ¿?? ÕâÀïÖ»¸³ÖµÁËÒ»´Î??
+	
+	print "counter ÖµÎª£º$count\n";
+	
+	$count++;
+}
+
+for(1..5){
+	PrintCount();
+}
+
+#state½öÄÜ´´½¨±ÕºÏ×÷ÓÃÓòÎª×Ó³ÌÐòÄÚ²¿µÄ±äÁ¿¡£
+#state¿ÉÒÔÉùÃ÷±êÁ¿¡¢Êý×é¡¢¹þÏ£¡£µ«ÔÚÉùÃ÷Êý×éºÍ¹þÏ£Ê±£¬²»ÄÜ¶ÔÆä³õÊ¼»¯£¨ÖÁÉÙPerl 5.14²»Ö§³Ö£©¡£
+
+
+
+print("\n_________________________________×Ó³ÌÐòµ÷ÓÃÉÏÏÂÎÄ__________________________________________________\n");
+
+#×Ó³ÌÐò(º¯Êý)µ÷ÓÃ¹ý³ÌÖÐ£¬»á¸ù¾ÝÉÏÏÂÎÄÀ´·µ»Ø²»Í¬ÀàÐÍµÄÖµ£¬
+#±ÈÈçÒÔÏÂ localtime() ×Ó³ÌÐò£¬ÔÚ±êÁ¿ÉÏÏÂÎÄ·µ»Ø×Ö·û´®£¬ÔÚÁÐ±íÉÏÏÂÎÄ·µ»ØÁÐ±í:
+
+
+# ±êÁ¿ÉÏÏÂÎÄ
+my $datestring = localtime( time );
+print $datestring;
+ 
+print "\n";
+ 
+# ÁÐ±íÉÏÏÂÎÄ
+($sec,$min,$hour,$mday,$mon, $year,$wday,$yday,$isdst) = localtime(time);
+printf("%d-%d-%d %d:%d:%d",$year+1990,$mon+1,$mday,$hour,$min,$sec);
+ 
+print "\n";
+
+
+
+=pod
+
+my ºÍ local µÄÇø±ð
+
+ÄÚ²¿ -> Íâ²¿£º
+
+ £¨1£©my ºÍ local ¶¼Ö»ÔÚÒ»¸ö block ÀïÓÐÐ§£¬³öÈ¥¾ÍÊ§Ð§£»
+ £¨2£©µ«ÊÇ local µÄ±äÁ¿¿ÉÒÔ¼ÌÐøÔÚÕâ¸ö block ÖÐµ÷ÓÃµÄ×Ó³ÌÐòÖÐ´æÔÚ£»
+ £¨3£©Èç¹ûÓÐÓëÍâ½çÍ¬ÃûµÄ±äÁ¿£¬Á½ÕßÔÚ block ÍË³öºó¶¼²»Ó°ÏìÍâ½çÍ¬Ãû±äÁ¿£»
+Íâ²¿ -> ÄÚ²¿£º
+
+£¨1£©Íâ²¿ÉèÖÃ my¡¢local¡¢È±Ê¡¾ù¶ÓÄÚÓÐÐ§£¬µ«ÊÇÍ¬Ãû±äÁ¿Íâ²¿ my£¬ÔÚ block ÄÚ²¿ local ÊÇ²»ÔÊÐíµÄ¡£ÒòÎª¶þÕßÔÚ block ÖÐµ÷ÓÃµÄ×Ó³ÌÐòÖÐ¾ùÓÐÐ§£¬»á³åÍ»¡£
+
+£¨2£©Èç¹ûÔÚÒ»¸ö block ÖÐÓÐÒ»¸ö my ÐÞÊÎµÄ±äÁ¿ºÍÍâ½çµÄÒ»¸ö±äÁ¿Í¬Ãû£¬¶øÇÒÓÖÐèÒªÔÚÕâ¸ö block ÖÐÊ¹ÓÃÍâ½ç±äÁ¿Ê±£¬Á½¸ö°ì·¨£º
+
+ µÚÒ»¸ö°ì·¨£¬ÓÃ main µÄ package ÐÞÊÎÕâ¸ö±äÁ¿Ãû $main::global¡£
+ µÚ¶þ¸ö°ì·¨£¬ÓÃ our ÐÞÊÎ our $global£¬ÄÇÃ´¸Ã block ÖÐ½ÓÏÂÀ´³öÏÖµÄËùÓÐ $global ¶¼ÊÇÍâ½çµÄ global¡£
+£¨3£©±àÐ´½Å±¾Ê±£¬×¢Òâ×÷ÓÃÓò£¬·ÀÖ¹Íâ²¿Ó°ÏìÄÚ²¿¡£
+
+=cut
 
 
 
