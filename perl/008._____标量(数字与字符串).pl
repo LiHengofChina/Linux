@@ -4,7 +4,7 @@
 
 #标量是一个单一的数据单元。 数据可以是整数，浮点数，字符，字符串，段落等。
 #简单的说它可以是任何东西。以下是标量的简单应用：
-
+#使用时在变量的名字前面加上一个 $，表示是标量
 
 
 $age = 25;             # 整型
@@ -33,6 +33,21 @@ print "bigfloat = $bigfloat\n";
 print "octal = $octal\n";
 print "hexa = $hexa\n";
 
+print("\n____________________标量运算__________________________\n");
+
+$str = "hello" . "world"; #字符串连接
+$num = 5 + 10;			  #数字相加
+$mul = 4 * 5 ;  	      #数字相乘
+$mix = $str . $num;        #数字 和 字符串 相连
+
+print "str = $str\n";
+print "num = $num\n";
+print "mix = $mix\n";
+
+
+
+
+
 print("\n____________________字符串标量__________________________\n");
 
 $var = "字符串标量 - 菜鸟教程!";
@@ -45,16 +60,7 @@ print "quote = $quote\n";
 print "double = $double\n";
 print "escape = $escape\n";
 
-print("\n____________________标量运算__________________________\n");
 
-$str = "hello" . "world"; #字符串连接
-$num = 5 + 10;			  #数字相加
-$mul = 4 * 5 ;  	      #数字相乘
-$mix = $str . $num;        #数字 和 字符串 相连
-
-print "str = $str\n";
-print "num = $num\n";
-print "mix = $mix\n";
 
 print("\n____________________多行字符串__________________________\n");
 
