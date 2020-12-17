@@ -27,5 +27,4 @@ if (open(MYFILE, ">>tmp")) { # >> ±íÊ¾×·¼Ó
 	close MYFILE;
 }
 
-
-
+ 
