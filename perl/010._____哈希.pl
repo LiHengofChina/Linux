@@ -64,7 +64,8 @@ print("\n___________________________________________________________检测元素是否
 
 %data = ('google'=>'google.com', 'runoob'=>'runoob.com', 'taobao'=>'taobao.com');
 
-if(exists($data{facebook})){
+if(exists($data{facebook})){	#注意检测的是值是否存在，判断方式是某个key的值。不是直接判断key存不存在
+
 	print "facebook 的网址为 $data{'facebook'} \n";
 }else{
 	print "facebook 键不存在\n";
