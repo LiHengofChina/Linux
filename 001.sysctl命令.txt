@@ -1,39 +1,34 @@
 sysctl 命令被用于在内核运行时动态地修改 linx  运行参数 
-可用的内核参数在 /proc/sys 中，它是一个文件夹
+可用的内核参数在 /proc/sys 中，它是一个文件夹 ，里面包涵 一些 TCP/IP堆栈和虚拟机内存系统的高级选项
 它下面有很多子文件夹
-		//它包涵 一些 TCP/IP堆栈和虚拟机内存系统的高级选项
 //======================================
 如： net.ipv4.tcp_retries2
 	对应 /proc/sys/net/ipv4/tcp_retries2 文件
 	cat /proc/sys/net/ipv4/tcp_retries2
-	
 	/proc
 		/sys
 			/net
 				/ipv4
 					/tcp_retries2
-
-					
-//=======================================修改方式
-
+//=======================================查看所有的值
+	sysctl -a
+//=======================================修改方式	
 通 sysctl 命令来修改这些值 
 
-1).
-	sysctl -a	//查看所有的值
-2).
-	2.1).先将值写到 /etc/sysctl.conf 配置文件中
+1).修改方式一，需要root账号
+	1).先将需要修改的配置写到 /etc/sysctl.conf 配置文件中
 		net.ipv4.tcp_tw_recycle=1
 		net.ipv4.tcp_tw_reuse=1
 		net.ipv4.tcp_fin_timeout=30
 		net.ipv4.tcp_keepalive_time=1800
 		net.ipv4.tcp_max_syn_backlog=8192
 		net.ipv4.tcp_retries2=5
-	2.2).让其生效
+	2).执行命令让其生效
 		sysctl -p
-3). 直接使用 命令来修改值
-	sysctl kernel.hostname=lihengxx
+3).修改方式二， 直接使用 命令来修改值
+	sysctl net.ipv4.tcp_fin_timeout=30
 
-4). 编写脚本来改变值
+4).修改方式三，某些时候是使用脚本进行修改它，具体实现有以下3种。
 	
 	//====================替换值第一种配置写法
 	sed -i '/^.*net.ipv4.tcp_retries2.*/d' /etc/sysctl.conf
@@ -76,12 +71,3 @@ sysctl 命令被用于在内核运行时动态地修改 linx  运行参数
 		echo "net.ipv4.tcp_retries2=5" >> /etc/sysctl.conf
 	fi
 	sysctl -p
-
-	
-
-
-
-
-
- 
-	
