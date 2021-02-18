@@ -7,6 +7,8 @@
 		»ò 
 		C:>perl -e <perl code>     
 		
+		Ê¾Àı£ºperl -e "print 'Àîºã'"
+			
 		
 	2). 
 		perl script.pl
