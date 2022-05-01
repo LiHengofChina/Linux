@@ -53,3 +53,24 @@ TEST
 print "$li\n";
 
 
+print "\n_________示例1_______________________________________________________________________\n";
+
+！#/bin/sh
+sqlplus name/password@services<<!
+execute pro_name;
+!
+
+
+print "\n_________示例2_______________________________________________________________________\n";
+
+
+dbaccess -e $newdbname <<!
+
+unload to $curmonth.unl
+
+select count(*) 
+from user
+	
+
+!
+
