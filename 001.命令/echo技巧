@@ -1,7 +1,7 @@
 
 //============================================================技巧01
 //============================================================技巧01
-	source liheng_env < <(echo ;echo 1;echo LihengPass123)
+	source liheng_env <<(echo ;echo 1;echo LihengPass123)
 
 	这个命令需要输入三次内容
 	第一部分： source liheng_env
