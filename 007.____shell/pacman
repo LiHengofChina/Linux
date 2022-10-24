@@ -1,0 +1,8 @@
+
+
+pacman 是一个系统包管理器//linux arch上面包管理器
+				//Arch Linux 是一款基于x86-64架构的Linux发行版
+		
+		pacman -Syu //对整个系统进行更新
+		//学习：https://wenku.baidu.com/view/7ba89d080366f5335a8102d276a20029bd6463c6.html
+
