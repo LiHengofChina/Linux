@@ -1,0 +1,4 @@
+
+在二进制文件中搜索某个字符串
+
+strings /lib64/libc.so.6 | grep GLIBC
