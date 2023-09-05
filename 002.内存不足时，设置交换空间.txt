@@ -1,31 +1,33 @@
 
 
 
+（0）mkdir -p  /tmp/tmp
+
 （1）创建一个交换文件
-	sudo fallocate -l 16G /home/liheng/workspace_work_local/swapfile
+	sudo fallocate -l 16G  /tmp/tmp/swapfile
 	或
-	sudo dd if=/dev/zero of=/home/liheng/workspace_work_local/swapfile bs=1M count=4096
+	sudo dd if=/dev/zero of= /tmp/tmp/swapfile bs=1M count=4096
 
 （2）设置文件权限
-	sudo chmod 777 /home/liheng/workspace_work_local/swapfile
+	sudo chmod 777  /tmp/tmp/swapfile
 
 （3）设置交换空间
-	sudo mkswap /home/liheng/workspace_work_local/swapfile
+	sudo mkswap  /tmp/tmp/swapfile
 
 （4）启用交换空间
-	sudo swapon /home/liheng/workspace_work_local/swapfile
+	sudo swapon  /tmp/tmp/swapfile
 
 
 （5）使交换文件永久
 
-		sudo echo "/home/liheng/workspace_work_local/swapfile swap swap defaults 0 0" >> /etc/fstab
+		sudo echo " /tmp/tmp/swapfile swap swap defaults 0 0" >> /etc/fstab
 
 （6）显示交换空间:  sudo swapon --show
 
 
 	NAME                                       TYPE SIZE USED PRIO
 	/swapfile                                  file 1.1G   0B   -2
-	/home/liheng/workspace_work_local/swapfile file  16G   0B   -3
+	 /tmp/tmp/swapfile file  16G   0B   -3
 	
     //两个交换文件都可以同时有效，只要它们都已经被激活并在/etc/fstab文件中列出，系统会使用它们。
 
