@@ -1,0 +1,32 @@
+
+
+//==========================================================
+.service 文件
+//==========================================================
+
+.service 文件是 Systemd 服务单元的描述文件。
+
+Systemd 是一个现代的初始化系统 (init system) ，
+用于初始化用户空间并管理系统进程。
+
+
+
+.service 文件定义了一个系统服务的各种属性，
+例如如何启动服务、服务类型、服务的依赖关系等等。
+这个文件通常使用 [Unit]、[Service] 和 [Install] 等部分来组织设置。
+
+example.service
+
+[Unit]
+Description=My Example Service
+After=network.target
+
+[Service]
+ExecStart=/path/to/my/command args
+Restart=always
+User=myuser
+Group=mygroup
+EnvironmentFile=-/path/to/my/environmentfile
+
+[Install]
+WantedBy=multi-user.target

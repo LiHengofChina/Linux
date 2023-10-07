@@ -1,5 +1,16 @@
 
+/***
 
+
+mkdir -p  /tmp/tmp
+sudo fallocate -l 16G  /tmp/tmp/swapfile
+sudo chmod 777  /tmp/tmp/swapfile
+sudo mkswap  /tmp/tmp/swapfile
+sudo swapon  /tmp/tmp/swapfile
+sudo swapon --show
+
+
+*/
 
 （0）mkdir -p  /tmp/tmp
 
@@ -20,7 +31,7 @@
 
 （5）使交换文件永久
 
-		sudo echo " /tmp/tmp/swapfile swap swap defaults 0 0" >> /etc/fstab
+		sudo echo "/tmp/tmp/swapfile swap swap defaults 0 0" >> /etc/fstab
 
 （6）显示交换空间:  sudo swapon --show
 
