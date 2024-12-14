@@ -25,3 +25,11 @@ supervisord -c supervisord.conf
 sudo supervisorctl status
 
 
+//========================================== （3）nodaemon=true 参数
+//========================================== （3）nodaemon=true 参数
+ 
+
+虽然参数是 nodaemon=false ，如果使用命令运行，它可能仍然以前台模式模型
+
+
+而在 systemd 服务中，则必须要以前台运行才可以 nodaemon=true 才可以
