@@ -1,0 +1,35 @@
+
+
+//========================================== （1）配置
+//========================================== （1）配置
+[program:gunicorn]
+command=/opt/venv4archery/bin/gunicorn archery.wsgi:application --bind 127.0.0.1:8888 --workers 3
+directory=/opt/archery
+user=your_user
+autostart=true
+autorestart=true
+stderr_logfile=/opt/log/gunicorn.err.log
+stdout_logfile=/opt/log/gunicorn.out.log
+
+
+
+//========================================== （2）启动命令
+//========================================== （2）启动命令
+
+supervisord -c supervisord.conf
+
+//========================================== （3）查看状态
+//========================================== （3）查看状态
+
+
+sudo supervisorctl status
+
+
+//========================================== （3）nodaemon=true 参数
+//========================================== （3）nodaemon=true 参数
+ 
+
+虽然参数是 nodaemon=false ，如果使用命令运行，它可能仍然以前台模式模型
+
+
+而在 systemd 服务中，则必须要以前台运行才可以 nodaemon=true 才可以

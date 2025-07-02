@@ -1,0 +1,88 @@
+
+
+//================================= 离线安装
+//================================= 离线安装
+
+//==========（1）下载
+//==========（1）下载
+
+https://github.com/PowerShell/Win32-OpenSSH/releases
+
+//OpenSSH-Win64.zip
+
+
+//==========（1）解压
+//==========（1）解压
+C:\Program Files\OpenSSH
+
+//==========（2）安装
+//==========（2）安装
+cd "C:\Program Files\OpenSSH"
+powershell.exe -ExecutionPolicy Bypass -File install-sshd.ps1
+
+//==========（3）启动服务
+//==========（3）启动服务
+Start-Service sshd
+
+//==========（4）开机启动
+//==========（4）开机启动
+Set-Service -Name sshd -StartupType 'Automatic'
+
+
+//================================= （0）查看安装位置
+//================================= （0）查看安装位置
+
+Get-Command sshd
+
+//================================= （1）查看ssd服务状态
+//================================= （1）查看ssd服务状态
+
+Get-Service -Name sshd
+
+//================================= （2）查看端口监听情况
+//================================= （2）查看端口监听情况
+
+netstat -an | findstr 22
+
+
+//================================= （3）添加防火墙规则
+//================================= （3）添加防火墙规则
+
+New-NetFirewallRule -Name sshd -DisplayName "OpenSSH Server (sshd)" -Enabled True -Direction Inbound -Protocol TCP -Action Allow -LocalPort 22
+
+
+//================================= （4）查看防火墙规则
+//================================= （4）查看防火墙规则
+
+Get-NetFirewallRule -DisplayName "OpenSSH Server (sshd)" | Get-NetFirewallPortFilter
+
+
+
+
+//=================================================================================
+
+（1）修改配置
+	C:\ProgramData\ssh\sshd_config 文件配置不对
+	检查 PasswordAuthentication yes 是否开启。
+
+
+（2）重新启动
+	Restart-Service sshd
+
+
+
+
+
+//================================= （5）从一台windows连接过去
+//================================= （5）从一台windows连接过去
+ 
+ssh administrator@172.24.1.101
+
+Administrator/ADmin@2023
+
+
+
+
+
+
+

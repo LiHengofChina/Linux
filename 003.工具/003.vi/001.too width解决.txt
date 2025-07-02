@@ -1,4 +1,0 @@
-stty -a
-
-stty columns 132
-

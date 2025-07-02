@@ -1,0 +1,7 @@
+
+
+sftp> lcd d:\2025\liheng
+sftp> cd /home/docker/
+sftp> put xxx.zip
+
+

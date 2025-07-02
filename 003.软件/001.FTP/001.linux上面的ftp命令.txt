@@ -1,0 +1,11 @@
+
+一段可以配置在 Execute Shell 上面的代码。
+
+ftp -v -n - i ${ip_address} <<EOF
+
+user ftpuser ftpuser
+...
+
+EOF
+
+

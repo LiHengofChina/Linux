@@ -1,5 +1,0 @@
-	配置 jre 环境 变更
-	1). vim ~/.bash_profile
-	2). export JAVA_HOME=/root/training/jdk1.8.0_144/jre
-		export PATH=$JAVA_HOME/bin:$PATH
-	3). source ~/.bash_profile 	
