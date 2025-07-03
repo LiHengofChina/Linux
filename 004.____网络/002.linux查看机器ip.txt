@@ -1,0 +1,7 @@
+
+
+ip addr					查看所有网卡的IP地址（新推荐）
+ifconfig				老命令，部分系统默认没装，需要安装net-tools
+hostname -I				只输出本机IP（简洁）
+ip route get 1.1.1.1	查看默认出口IP
+

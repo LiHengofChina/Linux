@@ -45,37 +45,55 @@ Get-Service -Name sshd
 netstat -an | findstr 22
 
 
-//================================= （3）添加防火墙规则
-//================================= （3）添加防火墙规则
+	/**
+	//================================= （1）添加防火墙规则
+	//================================= （1）添加防火墙规则
 
-New-NetFirewallRule -Name sshd -DisplayName "OpenSSH Server (sshd)" -Enabled True -Direction Inbound -Protocol TCP -Action Allow -LocalPort 22
+	New-NetFirewallRule -Name sshd -DisplayName "OpenSSH Server (sshd)" -Enabled True -Direction Inbound -Protocol TCP -Action Allow -LocalPort 22
+
+	//================================= （2）查看防火墙规则
+	//================================= （2）查看防火墙规则
+
+	Get-NetFirewallRule -DisplayName "OpenSSH Server (sshd)" | Get-NetFirewallPortFilter
+
+	//================================= （3）修改配置
+	//================================= （3）修改配置
+
+	（1）修改配置
+		C:\ProgramData\ssh\sshd_config 文件配置不对
+		检查 PasswordAuthentication yes 是否开启。
+
+	（2）重新启动
+		Restart-Service sshd
+
+	*/
+
+//================================= 端口探测
+//================================= 端口探测
+
+nc -zv 172.24.1.101 22
+
+root@aqjxsh ~# nc -zv 172.24.1.101 22
+(https://nmap.org/ncat
+connected to 172.24.1.101:22.
+0 bytes sent,0 bytes received in 0.04 seconds
 
 
-//================================= （4）查看防火墙规则
-//================================= （4）查看防火墙规则
+//================================= Telnet 对方端口
+//================================= Telnet 对方端口
 
-Get-NetFirewallRule -DisplayName "OpenSSH Server (sshd)" | Get-NetFirewallPortFilter
+telnet 172.24.1.101 22
 
+//================================= （5）先从本机连接测试：判断服务是否正确
+//================================= （5）先从本机连接测试：判断服务是否正确
 
+ssh Administrator@127.0.0.1
 
-
-//=================================================================================
-
-（1）修改配置
-	C:\ProgramData\ssh\sshd_config 文件配置不对
-	检查 PasswordAuthentication yes 是否开启。
-
-
-（2）重新启动
-	Restart-Service sshd
-
-
-
-
+Administrator/ADmin@2023
 
 //================================= （5）从一台windows连接过去
 //================================= （5）从一台windows连接过去
- 
+
 ssh administrator@172.24.1.101
 
 Administrator/ADmin@2023
