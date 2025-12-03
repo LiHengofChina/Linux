@@ -1,0 +1,56 @@
+/run if not xalfr then
+
+xalfr=CreateFram("ModelScene", nil, UIParent ) 	//CreateFram 创建框架（Frame）的方法。
+xalfr:SetPoint("TOP")							//设置为顶部对齐。
+xalfr:SetSize(512, 512)							//设置大小
+
+xalac = xalfr: CreateActor()			//创建一个角色模型，调用 xalfr 对象的方法 CreateActor
+xalac:SetModelByFileID(5159886) end		//将一个特定的模型文件设置为该实体的外观。
+xalac:SetAnimation(1138)				//设置该模型的动画。		
+xalac:SetPosition(2,0,0)				//设置模型的位置。
+
+
+//=========================================  : 语法
+//=========================================  : 语法
+
+: 语法表示方法调用，并且它传递了 xalfr 作为隐式的第一个参数（通常是 self，代表当前对象）。
+
+
+
+与常规的点（.）语法不同，: 是 Lua 中的一种简化写法，
+用于调用对象的方法，并自动将对象本身作为第一个参数传递给方法。这类似于其他编程语言中的 this 或 self。
+
+/**
+	例如，如果没有 : 语法，代码会变成：
+		xalfr.CreateActor(xalfr)
+*/
+
+//=========================================
+//=========================================
+像python  lua类的语法，在使用面向对象编程的时候，
+第一个参数都是需要传对象，就是this,
+
+在 Python 和 Lua 中，面向对象编程的语法是有所不同的，但它们都有类似 self 或 this 的概念，
+用于引用当前实例（即对象）本身。
+ 语法正是 Lua 中的一种简洁方式来处理这个问题。
+
+//========================================= Python 中的类和对象
+//========================================= Python 中的类和对象
+
+在 Python 中，类的方法的第一个参数通常是 self，它表示当前对象的实例。
+例如：
+
+class MyClass:
+    def __init__(self, name):
+        self.name = name
+
+    def greet(self):
+        print(f"Hello, {self.name}")
+
+# 创建一个对象
+obj = MyClass("Alice")
+# 调用方法时，Python 会自动将 obj 作为第一个参数传递给 greet 方法
+obj.greet()  # 输出：Hello, Alice
+
+这里 self 就是当前对象，它是自动传递给方法的。
+ 
